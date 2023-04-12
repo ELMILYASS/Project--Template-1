@@ -1,0 +1,470 @@
+:root {
+	--main-color: #10cab7;
+	--features-background: #f6f6f6;
+	--title-color: #2c4755;
+	--par-color: #575757;
+	--secondcolor: #2c4755;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Work Sans", sans-serif;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+.special-heading {
+	margin: 0;
+	letter-spacing: -3px;
+	font-size: 100px;
+	color: rgb(210, 222, 221);
+	font-weight: 800;
+	text-align: center;
+}
+.special-heading + p {
+	color: #797979;
+	font-size: 25px;
+	text-align: center;
+	margin: -36px 0 0 0;
+}
+
+@media (max-width: 768px) {
+	.special-heading {
+		font-size: 60px;
+	}
+	.special-heading + p {
+		margin-top: -20px;
+	}
+}
+.header {
+	width: 100%; /*même on l'écrit le div prend 100% de son container */
+	padding: 20px;
+}
+.header .container {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Small */
+@media (min-width: 768px) {
+	.container {
+		/*si le width du parent càd de l'écran est <768px alors le continer prend le width de l'écran
+        si le width de l'écran entre 768 et 992 il prend 750px*/
+		width: 750px;
+	}
+}
+/* Medium */
+@media (min-width: 992px) {
+	/*si le width de l'écran entre 992 et 1200 le width du container prend 970px*/
+	.container {
+		width: 970px;
+	}
+}
+/* Large */
+@media (min-width: 1200px) {
+	.container {
+		/*si le width de l'écran est supérieur à 1200px alors width du container sera 1170px*/
+		width: 1170px;
+	}
+}
+
+.logo {
+	width: 60px;
+}
+.links {
+	position: relative;
+}
+.icon {
+	width: 30px;
+
+	height: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+.icon span {
+	background-color: #24484f;
+	height: 3px;
+}
+.icon span:nth-child(1) {
+	width: 100%;
+}
+.icon span:nth-child(2) {
+	width: 50%;
+	transition: 0.3s;
+}
+.icon span:nth-child(3) {
+	width: 100%;
+}
+
+ul li a:hover {
+	padding-left: 25px;
+}
+
+ul {
+	position: absolute;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	min-width: 200px;
+	right: 0;
+	top: calc(100% + 15px);
+	display: none;
+	transition: 0.3s;
+	z-index: 1;
+}
+
+ul::before {
+	content: "";
+	border: 10px solid #24484f;
+	border-top-color: transparent;
+	border-left-color: transparent;
+
+	border-right-color: transparent;
+	position: absolute;
+	right: 5px;
+	top: -20px;
+}
+ul li a {
+	display: block;
+	padding: 20px;
+	color: #333;
+	text-decoration: none;
+	transition: 0.1s;
+}
+ul li:not(:last-child) a {
+	border-bottom: 1px solid #ddd;
+}
+
+.landing {
+	background-image: url(../images/landing.jpg);
+	background-size: cover;
+	background-position: bottom;
+	height: calc(100vh - 64px);
+
+	position: relative;
+}
+.intro-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+
+	width: 320px;
+	max-width: 100%;
+}
+.intro-text h1 {
+	margin: 0;
+	color: var(--main-color);
+	font-size: 55px;
+	font-weight: bold;
+}
+.intro-text p {
+	font-size: 20px;
+	/* color: #2c4755; */
+	line-height: 30px;
+}
+
+.features {
+	background-color: var(--features-background);
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+.features .container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	margin-left: auto;
+	margin-right: auto;
+	grid-gap: 50px;
+	align-items: center;
+}
+
+.feat {
+	padding: 20px;
+	text-align: center;
+}
+.feat i {
+	color: var(--main-color);
+}
+.feat h3 {
+	font-size: 20px;
+	font-weight: 800;
+
+	margin: 30px 0;
+}
+.feat p {
+	font-size: 17px;
+	color: #777;
+	line-height: 1.8;
+}
+
+.services {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+.services .container {
+	margin: auto;
+}
+
+.service-content {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 30px;
+	margin-top: 100px;
+}
+
+.srv {
+	display: flex;
+	margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+	.srv {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+.srv i {
+	color: var(--main-color);
+	flex-basis: 60px; /*dans le cas du pc flex basis equivaut width et dans le cas du téléphone où flex(direction;column flex basis c'est le height dans ce cas de l'icon où il ne posséde pas une propriété width ou height alors ce width ou le height se crée autour de l'icon sans changer sa taille c'est comme on fait un margin*/
+}
+
+.srv .text {
+	flex: 1; /* nécessaire à mettre pour que le div text ne prend pas l'espace vide (le widthe) de l'icon*/
+}
+.srv .text h3 {
+	margin: 0;
+}
+.srv .text p {
+	color: #777;
+	font-weight: 300;
+	line-height: 1.6;
+}
+
+.col .image {
+	position: relative;
+	text-align: center;
+}
+.col .image img {
+	width: 260px;
+}
+
+.col .image:before {
+	background-color: var(--secondcolor);
+	content: "";
+	position: absolute;
+	width: 100px;
+	height: calc(100%+100px);
+	right: 0;
+	height: calc(100% + 100px);
+	/* top: 47px; */
+	top: -50px;
+	z-index: -1;
+}
+
+@media (max-width: 1199px) {
+	.col .image {
+		display: none;
+	}
+}
+
+.Portfolio {
+	background-color: var(--features-background);
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+.Portfolio .container {
+	margin-left: auto;
+	margin-right: auto;
+}
+.projects {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 30px;
+	margin-top: 80px;
+}
+
+.projects img {
+	max-width: 100%;
+	width: 100%;
+}
+
+.project {
+	background-color: white;
+}
+.project div {
+	padding: 20px;
+}
+.project h3 {
+	margin: 0;
+}
+.project p {
+	color: #777;
+	line-height: 1.6;
+	margin-bottom: 0;
+}
+
+.about {
+	padding-top: 60px;
+	padding-bottom: 120px;
+}
+.about .container {
+	margin-left: auto;
+	margin-right: auto;
+}
+.about-content {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 100px;
+	justify-content: space-between;
+}
+.about-content img {
+	max-width: 100%;
+}
+.about-content .img {
+	position: relative;
+	width: 250px;
+	height: 375px;
+}
+.about-content .img::before {
+	position: absolute;
+	content: "";
+	width: 100px;
+	height: calc(100% + 80px);
+	background-color: #ebeceb;
+	top: -40px;
+	z-index: -1;
+	left: -20px;
+}
+.about-content .img::after {
+	content: "";
+	position: absolute;
+	width: 120px;
+	/* background-color: var(--main-color); */
+	height: 300px;
+	border-bottom: 80px solid var(--main-color);
+	border-left: 80px solid var(--main-color);
+	z-index: -1;
+	top: -40px;
+	left: 200px;
+}
+.about-content .info {
+	flex-basis: calc(
+		100% - 500px
+	); /*c'est comme width:100%-500px) mais on choisi flex-basis pour que cette valeur se transforme en height pour le cas de column*/
+}
+
+.info p:first-of-type {
+	line-height: 2;
+	font-weight: bold;
+	margin-bottom: 50px;
+}
+.info p:last-of-type {
+	line-height: 2;
+	color: #777;
+}
+.info hr {
+	width: 50%;
+	display: inline-block;
+	border-color: var(--main-color);
+}
+
+@media (max-width:991px){
+	.about-content{
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+	}
+	.about-content .img{
+		margin-bottom: 50px;
+	}
+	.about-content .img::after,.about-content .img::before{
+		display: none;
+	}
+}
+
+
+.contact{
+	padding-top: 60px;
+	background-color: var(--features-background);
+	padding-bottom: 60px;
+
+}
+.contact .container{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.contact .info{
+	padding-top: 60px;
+	padding-bottom: 60px;
+	text-align: center;
+}
+
+.contact .info p{
+	color: var(--secondcolor);
+	font-weight: 800;
+	font-size: 30px;
+	letter-spacing: -2px;
+	margin-bottom: 15px;
+	
+
+}
+.contact .info a{
+text-decoration: none;
+color: #10cab7;
+font-size: 30px;
+font-weight: 800;
+
+}
+
+.social{
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
+	margin-top: 20px;
+}
+.social i{
+	margin-left: 10px;
+	color: var(--secondcolor);
+}
+
+@media (max-width:767px){
+	.contact .info a,.contact .info p{
+		font-size: 25px;
+	}
+}
+
+.footer{
+	background-color: var(--secondcolor);
+	text-align: center;
+	padding: 60px;
+	font-size: 18px;
+	color: white;
+}
+
+.footer span{
+	color: var(--main-color);
+	font-weight: bold;
+	
+}
